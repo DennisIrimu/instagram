@@ -18,6 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('insta.urls')),
-    url(r'accounts/', include 'register')
+    url(r'', include('insta.urls'))
 ]
