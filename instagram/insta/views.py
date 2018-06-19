@@ -5,7 +5,7 @@ from .forms import LoginForm
 
 # Create your views here.
 
-def user_Login(request):
+def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -13,7 +13,7 @@ def user_Login(request):
             user = authenticate(username=cd['username'],
                                 password=cd['password'])
             if user is not None:
-                if user.is.active:
+                if user.is_active:
                     login(request, user)
                     return HttpResponse('Authenticated'\
                                         'successfully')
