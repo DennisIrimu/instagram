@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 from decouple import config
 import django_heroku
+from django.core.urlresolvers import reverse,reverse_lazy,resolve
 django_heroku.settings(locals(), staticfiles=False)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -34,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'insta',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
