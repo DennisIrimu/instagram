@@ -15,8 +15,8 @@ class Profile(models.Model):
         self.delete()
 
 
-def __str__(self):
-    return 'Profile for user {}'.format(self.user.username)
+    def __str__(self):
+        return 'Profile for user {}'.format(self.user.username)
 
 class Image(models.Model):
 

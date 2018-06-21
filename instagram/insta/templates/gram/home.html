@@ -1,0 +1,67 @@
+{%extends 'gram/base.html'%}
+{% load bootstrap3 %}
+
+
+
+
+
+
+{% block content %}
+{{block.super}}
+  {% if user.is_authenticated %}
+
+<h1 style="margin-left:20vw;">hello {{user.username}}</h1>
+
+
+
+
+{%endif%}
+
+
+
+
+    {%for photo_item in photos%}
+    <div class="card" style="background-color:white;margin-left:20vw;margin-right:30vw;margin-bottom:5vh;width:42vw;">
+
+
+      <img src="{{photo_item.image_profile.profile_photo.url}}"  class="img-responsive" alt="" style="height:4%;width:10%;border-radius:70%;margin-bottom:2%;margin-left:4%;margin-top:5vh;"></a>
+
+
+
+      <a href="{% url 'single' photo_item.pk %}"><img src="{{photo_item.image.url}}" alt="Avatar" style="width:100%;"></a>
+      <div class="container">
+        <h4 style="width:40%;"><b>{{photo_item.image_caption}}</b></h4>
+
+
+
+
+        <form  action="{%url 'comments' %}" method="post" enctype="multipart/form-data" style="width:45%;margin-left:-1%;">
+          {%csrf_token%}
+          <input type="hidden" class="btn btn-success btn-lg" name="photo_id" value="{{photo_item.id}}">
+          {% bootstrap_form form%}
+          <input type="submit" class="btn btn-success btn-lg" value="Post">
+        </form>
+
+
+        {% for comment in photo_item.comments %}
+        <br /> <br />
+        <div class="row" class="commentStyle">
+          <div class="col-xs-10">
+            <span class="userName"> {{ comment.user }} </span>
+            <br /> <br />
+            <div class="comment-box">
+                <textarea class="form-control" readonly> {{ comment.comment }} </textarea>
+            </div>
+            <br />
+
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+
+
+    {%endfor%}
+{% endblock %}

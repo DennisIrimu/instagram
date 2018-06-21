@@ -1,0 +1,39 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  {% block styles %}
+  {% bootstrap_css %}
+  {% endblock %}
+<link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
+</head>
+<body style="background-color:#f2f4f4;">
+
+  {% include "navbar.html" %}
+
+  {% block content %}{%endblock%}
+
+  {% block scripts %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %}
+<script>
+$.ajax({
+    type: 'POST',
+    url: '/articles/postComment/',
+    data: {
+       'comment': $('#articleCommentForm textarea').val(),
+       csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+    },
+    dataType: 'json',
+    success: function(data){
+         $('.commentStyle').append(data)
+   }
+});
+</script>
+  {% endblock %}
+</body>
+</html>
