@@ -1,20 +1,22 @@
 from django import forms
-from django.contrib.auth.models import User
+from .models import Profile,Image,Comments
 
-class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
 
-class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password',widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password',widget=forms.PasswordInput)
+class InstaLetterForm(forms.Form):
+    your_name = forms.CharField(label='First Name',max_length=30)
+    email = forms.EmailField(label='Email')
 
+class NewProfileForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ('username', 'first_name', 'email')
+        model = Profile
+        exclude = ['profile_follows']
 
-    def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
-        return cd['password2']
+class NewPostsForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        exclude = ['pub_date','image_profile','likes']
+
+class CommentsForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        exclude = ['image_id','profile_id']
