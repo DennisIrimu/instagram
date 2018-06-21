@@ -18,7 +18,7 @@ class Profile(models.Model):
 
     profile_photo = models.ImageField(upload_to = 'posts/',blank=True)
     bio = models.CharField(max_length=60)
-    profile_user = models.ForeignKey(User,on_delete=models.CASCADE)
+    profile_user = models.ForeignKey(User,on_delete=models.CASCADE,default='')
     profile_follows = models.ManyToManyField("self",related_name='follows',symmetrical = False)
 
     def save_profile(self):

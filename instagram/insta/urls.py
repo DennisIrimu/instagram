@@ -19,10 +19,7 @@ urlpatterns=[
     url(r'^comments/$',views.comments,name='comments'),
     url(r'^single/(?P<image_id>\d+)/$',views.single_view,name='single'),
 
-
-
-
-
 ]
+
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
