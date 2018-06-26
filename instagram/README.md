@@ -3,8 +3,7 @@
 #### By **[Dennis Irimu](https://github.com/DennisIrimu/)**
 
 ## Description
-This is a django web app clone of InstaGram whereby a user can create an account, view images, share images, like other users images and comment on them,
-Users have privileges of viewing images on the homepage.
+This is a django web app clone of InstaGram whereby a user can create an account, view images, share images, like other users images and comment on them.
 
 ### User Stories
 
