@@ -1,4 +1,4 @@
-# [INSTAGRAM](https://instagramal.herokuapp.com/)
+# [INSTAGRAM](https://digram.herokuapp.com/)
 #### Web clone of the Instagram app
 #### By **[Dennis Irimu](https://github.com/DennisIrimu/)**
 
@@ -27,9 +27,9 @@ Users have privileges of viewing images on the homepage.
 
 ### Clone the Repo
 
-    git clone   https://github.com/GabrielSpear/InstaGrama.git
+    git clone   https://github.com/DennisIrimu/instagram.git
 
-    $ cd InstaGrama
+    $ cd instagram
 
     $ pip3 install virtualenv
 
@@ -98,7 +98,7 @@ Open terminal on `localhost:8000`
 
 ## Support and contact details
 ```
-Incase you have any questions issues while using this code do not hesitate to get in touch with me via gabrieldvjspear@gmail.com
+Incase you have any questions issues while using this code do not hesitate to get in touch with me via lyricaldnyt@gmail.com
 ```
 ### License
 MIT (c) **Dennis Irimu**
