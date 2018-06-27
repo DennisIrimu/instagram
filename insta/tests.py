@@ -65,3 +65,19 @@ class ImageTestClass(TestCase):
 
     def tearDown(self):
         Image.objects.all().delete()
+
+class followersTestCase(TestCase):
+
+    following= models.ForeignKey(User,related_name='who_follows')
+    follower=models.ForeignKey(User,related_name='who_is_followed')
+
+    def setup (self):
+        self.user= User(username='dnyt',email='lyricaldnyt@gmail.com', password='dimm8450')
+        self.user.save()
+        self.followers= followers(following=self.User, follower=self.User)
+
+    def test_instance(self):
+        self.assertTrue(issintance(self.followers,followers))
+
+    def tearDown(self):
+        followers.objects.all().delete()
