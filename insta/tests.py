@@ -81,3 +81,31 @@ class followersTestCase(TestCase):
 
     def tearDown(self):
         followers.objects.all().delete()
+
+class CommentsTestClass(TestCase):
+
+
+    def setup (self):
+        self.image = Image(image='posts/',image_name='testing',image_caption='testing2',pub_date='02/04/2018',image_profile=self.profile,likes=self.profile)
+
+        self.profile=Profile(profile_photo=
+    '/posts',bio='love chocolate',profile_user=self.user,profile_follows="True")
+
+        self.comments=Comments(comment='blah blah',image_id=self.image, profile_id=self.profile)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.comment,Comments))
+
+    def test_save_method(self):
+        self.comment.save_comment()
+        comments =Comments.objects.all()
+        self.assertTrue(len(Comments) > 0)
+
+    def test_delete_comments(self):
+        self.comments.save_comments()
+        self.comments.delete_comments()
+        comments = Comments.objects.all()
+        self.assertTrue(len(comments) == 0)
+
+    def tearDown(self):
+        Comments.objects.all().delete()
